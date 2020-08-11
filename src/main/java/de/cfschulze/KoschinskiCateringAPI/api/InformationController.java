@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/")
+@RequestMapping("/koschinski")
 public class InformationController {
 
 
