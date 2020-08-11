@@ -1,7 +1,7 @@
 # KoschinskiCateringAPI
 A simple API fro "Koschinski Catering" cafeteria in Greifswald
 
-api.cf-schulze.de/koschinski/
+https://www.api.cf-schulze.de/koschinski/
 
 ## Requirements
 - Java14
