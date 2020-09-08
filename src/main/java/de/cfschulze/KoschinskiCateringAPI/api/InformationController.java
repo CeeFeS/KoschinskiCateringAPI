@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class InformationController {
 
 
+
     @GetMapping("/today")
     public ArrayList<String> getToday() throws IOException {
         Information information = new Information();
@@ -45,9 +46,6 @@ public class InformationController {
     @GetMapping("/all")
     public ArrayList<Gericht> getAll() throws IOException, SQLException {
         DBController dbc = DBController.getInstance();
-        dbc.initDBConnection();
-        Information information = new Information();
-        dbc.handleDB(information.getTage());
         return  dbc.getAll();
     }
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class DBController {
     private static final DBController dbcontroller = new DBController();
     private static Connection connection;
-    private static final String DB_PATH = "./" + "testdb.db";
+    private static final String DB_PATH = "./" + "meals.db";
 
     static {
         try {
@@ -60,12 +60,25 @@ public class DBController {
         });
     }
 
-    public void handleDB(ArrayList<Menu> menus) {
+    public void createTable() throws SQLException {
+
+        Statement stmt = connection.createStatement();
+
+        try {
+            stmt.executeUpdate("CREATE TABLE meals (tag, datum, publication, gericht);");
+        } catch (Exception e) {
+            System.out.println("Table already exists");
+        }
+
+    }
+
+    public void insertMenus(ArrayList<Menu> menus) {
         try {
             Statement stmt = connection.createStatement();
+
             for (Menu menu : menus) {
                 for (String gericht : menu.getGerichte()) {
-                    stmt.execute(" DELETE FROM meals WHERE tag == '"+menu.getTag()+"' AND datum == '"+menu.getDatum()+"' AND gericht == '"+gericht+"'");
+                    stmt.execute(" DELETE FROM meals WHERE tag == '" + menu.getTag() + "' AND datum == '" + menu.getDatum() + "' AND gericht == '" + gericht + "'");
                     stmt.execute("INSERT INTO meals (tag, datum, gericht) VALUES ('" + menu.getTag() + "', '" + menu.getDatum() + "', '" + gericht + "')");
                 }
             }
