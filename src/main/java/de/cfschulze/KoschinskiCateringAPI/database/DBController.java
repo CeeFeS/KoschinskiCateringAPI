@@ -65,7 +65,7 @@ public class DBController {
         Statement stmt = connection.createStatement();
 
         try {
-            stmt.executeUpdate("CREATE TABLE meals (tag, datum, publication, gericht);");
+            stmt.executeUpdate("CREATE TABLE meals (tag, datum, gericht);");
         } catch (Exception e) {
             System.out.println("Table already exists");
         }
