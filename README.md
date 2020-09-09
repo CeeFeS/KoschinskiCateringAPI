@@ -12,3 +12,4 @@ or
 
 - "/week" -> the whole week as JSON
 - "/today" -> meals today as JSON
+- "/all" -> all meals since 08.09.2020
